@@ -20,7 +20,7 @@ class Solution(object):
     def treeDFS(self, node):
         accGrdLeft, accLeft = self.treeDFS(node.left) if node.left else (0, 0)
         accGrdRight, accRight = self.treeDFS(node.right) if node.right else (0, 0)
-        accum = max([accGrdLeft+accGrdRight + node.val, accLeft+accRight, \
+        accum = max([accGrdLeft+accGrdRight+node.val, accLeft+accRight, \
                     accGrdRight+accLeft, accGrdLeft+accRight])
         if accum > self.max:
             self.max = accum
