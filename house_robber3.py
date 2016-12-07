@@ -32,3 +32,5 @@ class Solution(object):
         if node.accum > self.max:
             self.max = node.accum
         return maxLeftChild + maxRightChild
+
+        
