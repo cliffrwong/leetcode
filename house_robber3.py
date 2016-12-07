@@ -2,7 +2,6 @@
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
-        self.accum = 0
         self.left = None
         self.right = None
 
@@ -19,18 +18,15 @@ class Solution(object):
         return self.max
     
     def treeDFS(self, node):
-        maxLeftGChild, maxLeftChild = (self.treeDFS(node.left), \
-                                        node.left.accum) \
+        accGrandLeft, accLeft = self.treeDFS(node.left) \
                                         if node.left else (0, 0)
-        maxRightGChild, maxRightChild = (self.treeDFS(node.right), \
-                                        node.right.accum) \
+        accGrandRight, accRight = self.treeDFS(node.right) \
                                         if node.right else (0, 0)
-        node.accum = max([maxLeftGChild+maxRightGChild + node.val, \
-                        maxLeftChild+maxRightChild, \
-                        maxRightGChild+maxLeftChild, \
-                        maxLeftGChild+maxRightChild])
-        if node.accum > self.max:
-            self.max = node.accum
-        return maxLeftChild + maxRightChild
-
+        accum = max([accGrandLeft+accGrandRight + node.val, \
+                    accLeft+accRight, \
+                    accGrandRight+accLeft, \
+                    accGrandLeft+accRight])
+        if accum > self.max:
+            self.max = accum
+        return (accLeft + accRight, accum)
         
