@@ -19,12 +19,13 @@ class Solution(object):
         return self.max
     
     def treeDFS(self, node):
-        maxLeftGChild, maxLeftChild, leftAccum = (self.treeDFS(node.left), \
-                                        node.left.accum, node.left.accum) \
-                                        if node.left else (0, 0, 0)
-        maxRightGChild, maxRightChild, rightAccum = (self.treeDFS(node.right), \
-                                        node.right.accum, node.right.accum) \
-                                        if node.right else (0, 0, 0)
+        maxLeftGChild, maxLeftChild = (self.treeDFS(node.left), \
+                                        node.left.accum) \
+                                        if node.left else (0, 0)
+        maxRightGChild, maxRightChild = (self.treeDFS(node.right), \
+                                        node.right.accum) \
+                                        if node.right else (0, 0)
+        
         node.accum = max([maxLeftGChild+maxRightGChild + node.val, \
                         maxLeftChild+maxRightChild, \
                         maxRightGChild+maxLeftChild, \
@@ -32,6 +33,4 @@ class Solution(object):
         if node.accum > self.max:
             self.max = node.accum
             
-        return leftAccum + rightAccum
-        
-        
+        return maxLeftChild + maxRightChild
