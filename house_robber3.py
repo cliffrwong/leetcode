@@ -25,12 +25,10 @@ class Solution(object):
         maxRightGChild, maxRightChild = (self.treeDFS(node.right), \
                                         node.right.accum) \
                                         if node.right else (0, 0)
-        
         node.accum = max([maxLeftGChild+maxRightGChild + node.val, \
                         maxLeftChild+maxRightChild, \
                         maxRightGChild+maxLeftChild, \
                         maxLeftGChild+maxRightChild])
         if node.accum > self.max:
             self.max = node.accum
-            
         return maxLeftChild + maxRightChild
