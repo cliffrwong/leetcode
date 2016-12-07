@@ -24,5 +24,5 @@ class Solution(object):
                     accGrdRight+accLeft, accGrdLeft+accRight])
         if accum > self.max:
             self.max = accum
-        return (accLeft + accRight, accum)
+        return (accLeft+accRight, accum)
 
