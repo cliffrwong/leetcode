@@ -25,7 +25,6 @@ class Solution(object):
         maxRightGChild, maxRightChild, rightAccum = (self.treeDFS(node.right), \
                                         node.right.accum, node.right.accum) \
                                         if node.right else (0, 0, 0)
-        
         node.accum = max([maxLeftGChild+maxRightGChild + node.val, \
                         maxLeftChild+maxRightChild, \
                         maxRightGChild+maxLeftChild, \
