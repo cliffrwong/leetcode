@@ -1,4 +1,3 @@
-# Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -11,18 +10,12 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        if not root:
-            return 0
-        self.max = 0
-        self.treeDFS(root)
-        return self.max
-    
+        return self.treeDFS(root)[1]
+        
     def treeDFS(self, node):
-        accGrdLeft, accLeft = self.treeDFS(node.left) if node.left else (0, 0)
-        accGrdRight, accRight = self.treeDFS(node.right) if node.right else (0, 0)
-        accum = max([accGrdLeft+accGrdRight+node.val, accLeft+accRight, \
-                    accGrdRight+accLeft, accGrdLeft+accRight])
-        if accum > self.max:
-            self.max = accum
+        if not node:
+            return (0,0)
+        accGrdLeft, accLeft = self.treeDFS(node.left)
+        accGrdRight, accRight = self.treeDFS(node.right)
+        accum = max([accGrdLeft+accGrdRight+node.val, accLeft+accRight])
         return (accLeft+accRight, accum)
-
