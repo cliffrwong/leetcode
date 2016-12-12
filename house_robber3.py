@@ -1,3 +1,6 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
