@@ -78,7 +78,7 @@ class GetMissing():
 
 def main():
     maxPoints = 4
-    deg = 3
+    deg = 2
     alpha = .0001
     plot = True
     local = True
