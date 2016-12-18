@@ -24,7 +24,7 @@ class Solution(object):
                 else:
                     stack.append((xHeight, xIdx))
                     break
-            if not stack or (stack and height > stack[-1][0]):
+            if not stack or height > stack[-1][0]:
                 stack.append((height, idx-maxWidth))
         maxArea = max([(len(heights)-xIdx)*xHeight for (xHeight, xIdx) in stack] + [maxArea])
         return maxArea
