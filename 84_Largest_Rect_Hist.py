@@ -7,10 +7,6 @@ class Solution(object):
         maxArea = 0
         stack = []
         for idx, height in enumerate(heights):
-            if not stack:
-                stack.append((height, 0))
-                maxArea = height
-                continue
             maxWidth = 0
             while stack:
                 (xHeight, xIdx) = stack.pop()
