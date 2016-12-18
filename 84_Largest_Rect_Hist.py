@@ -10,21 +10,21 @@ class Solution(object):
         stack = []
         for idx, height in enumerate(heights):
             if not stack:
-                stack.append((height, height))
+                stack.append((height, 0))
                 maxArea = height
                 continue
             maxWidth = 0
             while stack:
-                (xHeight, xArea) = stack.pop()
+                (xHeight, xIdx) = stack.pop()
                 if xHeight > height:
+                    xArea = xHeight*(idx-xIdx)
                     maxArea = xArea if xArea > maxArea else maxArea
                     width = xArea/xHeight
                     maxWidth = width if width > maxWidth else maxWidth
                 else:
-                    stack.append((xHeight, xArea))
+                    stack.append((xHeight, xIdx))
                     break
-            stack = [(xHeight, xArea+xHeight) for (xHeight, xArea) in stack]
             if not stack or (stack and height > stack[-1][0]):
-                stack.append((height, height*(maxWidth+1)))
-        maxArea = max(max(stack,key=lambda item:item[1])[1], maxArea)
+                stack.append((height, idx-maxWidth))
+        maxArea = max([(len(heights)-xIdx)*xHeight for (xHeight, xIdx) in stack] + [maxArea])
         return maxArea
