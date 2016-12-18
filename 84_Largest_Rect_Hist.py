@@ -4,8 +4,6 @@ class Solution(object):
         :type heights: List[int]
         :rtype: int
         """
-        if not heights:
-            return 0
         maxArea = 0
         stack = []
         for idx, height in enumerate(heights):
