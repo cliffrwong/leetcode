@@ -17,9 +17,9 @@ class Solution(object):
             while stack:
                 (xHeight, xIdx) = stack.pop()
                 if xHeight > height:
-                    xArea = xHeight*(idx-xIdx)
+                    width = idx-xIdx
+                    xArea = xHeight*width
                     maxArea = xArea if xArea > maxArea else maxArea
-                    width = xArea/xHeight
                     maxWidth = width if width > maxWidth else maxWidth
                 else:
                     stack.append((xHeight, xIdx))
