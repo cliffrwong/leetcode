@@ -29,7 +29,6 @@ class HitCounter(object):
             self.hitDeque[-1][1] += 1
         self.accumHits += 1
         # updateDeque below for better scalability but slower
-        # Can comment out if getHits is called frequently
         self.updateDeque(timestamp)   
             
     def getHits(self, timestamp):
