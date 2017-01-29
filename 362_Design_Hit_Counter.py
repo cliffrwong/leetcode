@@ -20,7 +20,6 @@ class HitCounter(object):
         @param timestamp - The current timestamp (in seconds granularity).
         :type timestamp: int
         :rtype: void
-        hitQueue consists of a tuple (timestamp, hits)
         """
         if not self.hitDeque or self.hitDeque[-1][0] != timestamp:
             self.hitDeque.append([timestamp, 1])
