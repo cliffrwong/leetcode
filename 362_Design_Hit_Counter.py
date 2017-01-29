@@ -23,7 +23,6 @@ class HitCounter(object):
         hitQueue consists of a tuple (timestamp, hits)
         """
         if not self.hitDeque or self.hitDeque[-1][0] != timestamp:
-            # accumulate past hits
             self.hitDeque.append([timestamp, 1])
         else:
             self.hitDeque[-1][1] += 1
