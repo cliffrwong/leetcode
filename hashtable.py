@@ -68,6 +68,7 @@ class HashTable:
         self._keys.remove(found_item[0])
         self.size -= 1
         return found_item[1]
+    find_result_func(found_item, hash_table_cell)
 
   def keys(self):
     return self._keys
