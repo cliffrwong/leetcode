@@ -45,7 +45,7 @@ class HashTable:
         return self._find_by_key(key, find_result_func)
         
     def upPrime(self, n):
-        for num in range(n, 2n ,2):
+        for num in range(n, 2*n, 2):
             if all(num%i!=0 for i in range(2,int(math.sqrt(num))+1)):
                 return num
     def rehash(self):
