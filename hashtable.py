@@ -21,7 +21,7 @@ class HashTable:
     for item in hash_table_cell:
       if item[0] == key:
         found_item = item
-    find_result_func(found_item, hash_table_cell)
+    return find_result_func(found_item, hash_table_cell)
 
   def get(self, key):
     def find_result_func(found_item, _):
